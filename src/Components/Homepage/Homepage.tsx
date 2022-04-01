@@ -37,6 +37,7 @@ export const Homepage = () => {
         <div className="buttons-container">
           <button
             type="button"
+            data-testid="cat-button"
             className="btn btn-primary"
             onClick={giphyCatSearch}
           >
@@ -44,6 +45,7 @@ export const Homepage = () => {
           </button>
           <button
             type="button"
+            data-testid="dog-button"
             className="btn btn-success"
             onClick={giphyDogSearch}
           >
