@@ -1,27 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import GiphyResult from "../GiphyResult/GiphyResult";
 
 export const Homepage = () => {
-    const[ giphyData, setGiphyData ] = useState([]);
+    const[ catData, setCatData ] = useState([]);
+    const[ dogData, setDogData ] = useState([]);
 
   const giphyCatSearch = async () => {
-      const url = "https://api.giphy.com/v1/gifs/search?api_key=LXTa9gMarNNr4VcOOhbKXEDVFDKPwCGO&q=cats&limit=5";
+      const url = "https://api.giphy.com/v1/gifs/search?api_key=LXTa9gMarNNr4VcOOhbKXEDVFDKPwCGO&q=cats&limit=15";
       const response = await fetch(url);
-      
       let giphy = await response.json();
-      // giphy.push(await response.json());
-      console.log("giphy search", giphy.data)
-    setGiphyData(giphy.data);
+      
+      setCatData(giphy.data);
   };
 
   const giphyDogSearch = async () => {
-      const url = "https://api.giphy.com/v1/gifs/search?api_key=LXTa9gMarNNr4VcOOhbKXEDVFDKPwCGO&q=dogs&limit=5";
+      const url = "https://api.giphy.com/v1/gifs/search?api_key=LXTa9gMarNNr4VcOOhbKXEDVFDKPwCGO&q=dogs&limit=15";
       const response = await fetch(url);
-      
       let giphy = await response.json();
-      // giphy.push(await response.json());
-      console.log("giphy search", giphy.data)
-    setGiphyData(giphy.data);
+
+      setDogData(giphy.data);
   };
+
+  useEffect(()=> {
+    console.log("catData", catData)
+    console.log("dogData", dogData)
+  },[catData,dogData])
 
   return (
     <>
@@ -29,6 +32,8 @@ export const Homepage = () => {
         <div>This is homepage</div>
         <button onClick={giphyCatSearch}>Cats</button>
         <button onClick={giphyDogSearch}>Dogs</button>
+
+        <GiphyResult catData={catData} dogData={dogData}/>
       </div>
     </>
   );
