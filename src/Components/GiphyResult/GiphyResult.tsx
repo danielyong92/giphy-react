@@ -10,11 +10,11 @@ export const GiphyResult: React.FC<GiphyResultProps> = props => {
       <h3 id="haveFunText">Gifs! Have fun!</h3>
       {catData &&
         catData.map((cats, index) => (
-          <GiphyCard imageUrl={cats.images.downsized_medium.url} key={index} />
+          <GiphyCard imageUrl={cats.images.downsized_medium.url} title={cats.title} rating={cats.rating} key={index} />
         ))}
       {dogData &&
         dogData.map((dogs, index) => (
-          <GiphyCard imageUrl={dogs.images.downsized_medium.url} key={index} />
+          <GiphyCard imageUrl={dogs.images.downsized_medium.url} title={dogs.title} rating={dogs.rating}key={index} />
         ))}
     </>
   );

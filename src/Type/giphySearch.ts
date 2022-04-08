@@ -5,6 +5,8 @@ export type GiphyResultProps = {
   
   export type GiphyData = {
     images: Images;
+    title:string;
+    rating:string;
   }
   
   export type Images = {
@@ -17,5 +19,7 @@ export type GiphyResultProps = {
 
   export type GiphyCardProps = {
     imageUrl: string;
+    title: string;
+    rating: string;
     key: number;
   };
