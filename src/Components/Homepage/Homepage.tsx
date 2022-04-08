@@ -33,7 +33,7 @@ export const Homepage = () => {
   return (
     <>
       <div className="Topbar">
-        <h3>GIPHY:</h3>
+        <h3 id="giphyTitle">GIPHY:</h3>
         <div className="buttons-container">
           <button
             type="button"

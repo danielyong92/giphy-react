@@ -7,7 +7,7 @@ export const GiphyResult: React.FC<GiphyResultProps> = props => {
   console.log("catData in result", catData)
   return (
     <>
-      <h3>Gifs! Have fun!</h3>
+      <h3 id="haveFunText">Gifs! Have fun!</h3>
       {catData &&
         catData.map((cats, index) => (
           <GiphyCard imageUrl={cats.images.downsized_medium.url} key={index} />
